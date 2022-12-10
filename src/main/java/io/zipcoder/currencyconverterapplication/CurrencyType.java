@@ -16,15 +16,21 @@ public enum CurrencyType {
 
     private final double rate;
 
-    CurrencyType(double rate) {
+    CurrencyType(double rate) { //constructor
         this.rate = rate;
     }
 
-    public Double getRate() {
+    public Double getRate() { //getter
         return rate;
     }
 
     public static CurrencyType getTypeOfCurrency(ConvertableCurrency currency) {
+
+        for(CurrencyType ct : CurrencyType.values()) {
+            if (currency.getCurrencyType().equals(ct)) {
+                return ct;
+            }
+        }
         return null;
     }
 }
